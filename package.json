@@ -14,7 +14,8 @@
   "dependencies": {
     "glob": "^6.0.0",
     "json-parse-helpfulerror": "^1.0.2",
-    "normalize-package-data": "^2.0.0"
+    "normalize-package-data": "^2.0.0",
+    "read-package-json-expand-scripts": "git+https://github.com/IRT-fbachmann/read-package-json-expand-scripts.git"
   },
   "devDependencies": {
     "standard": "^5.3.1",

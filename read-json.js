@@ -11,6 +11,11 @@ var glob = require('glob')
 var normalizeData = require('normalize-package-data')
 var safeJSON = require('json-parse-helpfulerror')
 
+var expand;
+try {
+  expand = require('read-package-json-expand-scripts');
+} catch (e) { }
+
 module.exports = readJson
 
 // put more stuff on here to customize.
@@ -74,6 +79,9 @@ function parseJson (file, er, d, log, strict, cb) {
 
   try {
     d = safeJSON.parse(stripBOM(d))
+    if(expand) {
+      d = expand(d);
+    }
   } catch (er) {
     d = parseIndex(d)
     if (!d) return cb(parseError(er, file))
